@@ -1,5 +1,4 @@
-
-<footer class="footer">
+<div class="footer">
     <div class="container">
         <div class="about-us" data-aos="fade-right" data-aos-delay="200">
             <h2>About us</h2>
@@ -26,4 +25,4 @@
     <div class="move-up">
         <span><i class="fas fa-arrow-circle-up fa-2x"></i></span>
     </div>
-</footer>
+</div>

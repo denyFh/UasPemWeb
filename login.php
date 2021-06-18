@@ -37,14 +37,14 @@ guestsOnly();
       <?php include(ROOT_PATH . "/app/helpers/form-validation.php"); ?>
 
       <div>
-        <label>Username</label>
-        <input type="text" name="username" value="<?php echo $username; ?>" class="text-input">
+        <label for="uname">Username</label>
+        <input type="text" name="username" id="uname" value="<?php echo $username; ?>" class="text-input">
       </div>
       <div>
-        <label>Password</label>
-        <input type="password" name="password" value="<?php echo $password; ?>" class="text-input">
+        <label for="pw">Password</label>
+        <input type="password" name="password" id="pw" value="<?php echo $password; ?>" class="text-input">
       </div>
-      <div>
+      <div id="button-align">
         <button type="submit" name="login-btn" class="btn btn-big">Login</button>
       </div>
       <p>Or <a href="<?php echo BASE_URL . '/register.php' ?>">Sign Up</a></p>

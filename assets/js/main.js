@@ -25,6 +25,7 @@ $(document).ready(function () {
 
     // owl-crousel for blog
     $('.owl-carousel').owlCarousel({
+        items: 4,
         loop: true,
         autoplay: false,
         autoplayTimeout: 3000,
@@ -51,12 +52,13 @@ $(document).ready(function () {
     });
 });
 
+
 function dropdownMenu() {
     document.getElementById("setDropdown").classList.toggle("show");
 }
   
   // Close the dropdown if the user clicks outside of it
-  window.onclick = function(event) {
+window.onclick = function(event) {
     if (!event.target.matches('.dropbtn')) {
         var dropdowns = document.getElementsByClassName("dropdown-content");
         var i;

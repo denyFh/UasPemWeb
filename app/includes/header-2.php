@@ -1,4 +1,4 @@
-<header>
+<header class="two">
     <nav class="nav">
         <div class="nav-menu flex-row">
             <div class="nav-brand">

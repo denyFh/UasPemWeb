@@ -1,3 +1,22 @@
+<?php
+include("dir-path.php");
+include(ROOT_PATH . "/app/controller/users.php");
+
+
+$posts = array();
+$postsTitle = 'Recent Posts';
+
+if (isset($_GET['t_id'])) {
+    $posts = getPostsByTopicId($_GET['t_id']);
+    $postsTitle = "You searched for posts under '" . $_GET['name'] . "'";
+} else if (isset($_POST['search-term'])) {
+    $postsTitle = "You searched for '" . $_POST['search-term'] . "'";
+    $posts = searchPosts($_POST['search-term']);
+} else {
+    $posts = getPublishedPosts();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,11 +41,8 @@
 
 </head>
 
-<?php include("dir-path.php") ?>
-<?php include(ROOT_PATH . "/app/controller/users.php"); ?>
-
 <body>
-    
+
     <!-- Main Site Section -->
 
     <main>
@@ -34,16 +50,16 @@
         <!-- Site Title -->
 
         <section class="site-title">
-            <?php include(ROOT_PATH . "/app/includes/header.php")?>
+            <?php include(ROOT_PATH . "/app/includes/header.php") ?>
             <div class="site-background" data-aos="fade-up" data-aos-delay="100">
                 <h3>Save the Earth</h3>
                 <h1>Protect Our Forest</h1>
                 <button class="btn" onclick="location.href='./pages.php'" id="bott">Explore</button>
-                <?php if (!isset($_SESSION['id'])):
-                $button = '<button class="btn-2" onclick="location.href=' . "'./login.php'" . '">Join Now !</button>';
-                echo $button;
-                endif?>
-            </div>    
+                <?php if (!isset($_SESSION['id'])) :
+                    $button = '<button class="btn-2" onclick="location.href=' . "'./login.php'" . '">Join Now !</button>';
+                    echo $button;
+                endif ?>
+            </div>
         </section>
 
         <!-- Site Title -->
@@ -55,62 +71,18 @@
             <div class="blog">
                 <div class="container">
                     <div class="owl-carousel owl-theme blog-post">
-                        <div class="blog-content" data-aos="fade-left" data-aos-delay="200">
-                            <img src="./assets/Forest-post/fore-1.png" alt="post-1">
-                            <?php 
-                                $command = 'location.href='."'./login.php'"; 
-                                $command_id = 'location.href=' . "'./single.php'"; 
-                            ?>
-                            <div class="blog-title">
-                                <h3>Endangered Forest On the Line</h3>
-                                <button class="btn btn-blog" onclick="<?php if (!isset($_SESSION['id'])) {
-                                    echo $command;
-                                } else {
-                                    echo $command_id;
-                                } ?>">
-                                Read More
-                                </button>
+                        <?php foreach ($posts as $post) : ?>
+                            <div class="blog-content" data-aos="fade-left" data-aos-delay="200">
+                                <img src="<?php echo './assets/images/' . $post['image']; ?>" alt="" class="slider-image">
+                                <div class="post-info blog-title">
+                                    <?php if (isset($_SESSION['id'])) { ?>
+                                        <h3><a href="single.php?id=<?php echo $post['id']; ?>"><?php echo $post['title']; ?></a></h3>
+                                    <?php } else {
+                                        echo '<h3><a href="login.php">' . $post['title'] . '</a></h3>';
+                                    } ?>
+                                </div>
                             </div>
-                        </div>
-                        <div class="blog-content" data-aos="fade-left" data-aos-delay="200">
-                            <img src="./assets/Forest-post/fore-3.png" alt="post-1">
-                            <div class="blog-title">
-                                <h3>Take Action! Help Us Protect our Forest</h3>
-                                <button class="btn btn-blog" onclick="<?php if (!isset($_SESSION['id'])) {
-                                    echo $command;
-                                } else {
-                                    echo $command_id;
-                                } ?>">
-                                Read More
-                                </button>
-                            </div>
-                        </div>
-                        <div class="blog-content" data-aos="fade-left" data-aos-delay="200">
-                            <img src="./assets/Forest-post/fore-2.png" alt="post-1">
-                            <div class="blog-title">
-                                <h3>Forest Rebuilding Realization</h3>
-                                <button class="btn btn-blog" onclick="<?php if (!isset($_SESSION['id'])) {
-                                    echo $command;
-                                } else {
-                                    echo $command_id;
-                                } ?>">
-                                Read More
-                                </button>
-                            </div>
-                        </div>
-                        <div class="blog-content" data-aos="fade-left" data-aos-delay="200">
-                            <img src="./assets/Forest-post/fore-4.png" alt="post-1">
-                            <div class="blog-title">
-                                <h3>Make Forest as Fun Place to Go</h3>
-                                <button class="btn btn-blog" onclick="<?php if (!isset($_SESSION['id'])) {
-                                    echo $command;
-                                } else {
-                                    echo $command_id;
-                                } ?>">
-                                Read More
-                                </button>
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
                     <div class="owl-navigation">
                         <span class="owl-nav-prev"><i class="fas fa-long-arrow-alt-left"></i></span>
@@ -146,9 +118,9 @@
                 <p>Let us be Social</p>
                 <div>
                     <a href="https://www.facebook.com/chintaalya.6601" target="blank"><i class="fab fa-facebook-f"></i>
-                    <a href="https://twitter.com/namakuchinta" target="blank"><i class="fab fa-twitter"></i>
-                    <a href="https://www.instagram.com/denf.y/" target="blank"><i class="fab fa-instagram"></i>
-                    <a href="https://www.youtube.com/channel/UCXHWHSRsexVkptCRhN0TJNw" target="blank"><i class="fab fa-youtube"></i>
+                        <a href="https://twitter.com/namakuchinta" target="blank"><i class="fab fa-twitter"></i>
+                            <a href="https://www.instagram.com/denf.y/" target="blank"><i class="fab fa-instagram"></i>
+                                <a href="https://www.youtube.com/channel/UCXHWHSRsexVkptCRhN0TJNw" target="blank"><i class="fab fa-youtube"></i>
                 </div>
             </div>
         </div>
@@ -181,7 +153,7 @@
         function scrolltoSect() {
             document.querySelector('#carousel-sect').scrollIntoView({
                 behavior: 'smooth',
-                time: 1/100
+                time: 1 / 100
             });
         };
     </script>

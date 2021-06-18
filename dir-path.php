@@ -1,4 +1,4 @@
 <?php
 
 define("ROOT_PATH", realpath(dirname(__FILE__)));
-define("BASE_URL", "http://localhost/Upfolder");
+define("BASE_URL", "http://localhost/Uas_PemWeb_A6");
