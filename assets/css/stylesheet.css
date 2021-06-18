@@ -138,7 +138,6 @@ header.two {
 }
 
 nav.nav {
-  /* background: linear-gradient(hsl(0 0% 0% / 0.7), hsl(0 0% 0% / 0)); */
   padding: 0 2rem;
   height: fit-content;
   min-height: 7vh;
@@ -331,7 +330,7 @@ header .menu-toggle {
 
 /* --------------- Site title ---------------- */
 main .site-title {
-  background: url("../Forest-post/1276644.jpg");
+  background: url("../images/1276644.jpg");
   background-size: cover;
   height: 100vh;
   display: flex;
@@ -563,7 +562,7 @@ div.footer .move-up span:hover {
 
 main.login,
 main.register {
-  background: url("../Forest-post/1276644.jpg");
+  background: url("../images/1276644.jpg");
   background-size: cover;
   height: 100vh;
   display: flex;
@@ -777,107 +776,6 @@ body#pages {
 }
 
 /* ----x----- ALT3 Content Pages ----x------*/
-
-/* ---------- ALTx add-messages page ------------*/
-
-main .site-title .site-background-messages {
-  padding-top: 10vh;
-  text-align: center;
-  color: var(--white);
-}
-
-main .messages-container {
-  width: 60vw;
-  margin-left: auto;
-  margin-right: auto;
-  align-items: center;
-}
-
-main .messages-container button {
-  -webkit-appearance: none;
-  box-shadow: none;
-  font-weight: 700;
-  line-height: 3rem;
-  font-size: 1.5rem;
-  width: 440px;
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  margin-left: 5px;
-  margin-top: 1rem;
-}
-
-main .messages-wrapper {
-  display: flex;
-  align-items: center;
-}
-
-main .submit-recipient {
-  display: flex;
-  position: relative;
-  top: 2.7%;
-  left: 23.2%;
-  height: 7.66129%;
-  align-items: center;
-  padding: 0 12px;
-  box-sizing: border-box;
-}
-
-main .submit-to {
-  color: #000;
-  font-size: 33px;
-  line-height: 44px;
-  letter-spacing: -1px;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-main .submit-recipient input {
-  font-size: 33px;
-  line-height: 44px;
-  outline: 0;
-  -webkit-appearance: none;
-  border: 0;
-  box-sizing: border-box;
-  background-color: transparent;
-  font-family: Arial, Helvetica, sans-serif;
-  letter-spacing: -1px;
-  color: #000;
-  text-shadow: 0 0 0 #000;
-}
-
-main .messages-context {
-  width: 440px;
-  height: 496px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: linear-gradient(hsl(0 0% 0% / 1), hsl(0 0% 0% / 0));
-  background-image: url("../template/template.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-main .messages-context textarea {
-  overflow: auto;
-  position: relative;
-  top: 12.2%;
-  width: 380px;
-  height: 390px;
-  max-width: none;
-  max-height: none;
-  resize: none;
-  padding: 10px;
-  outline: 0;
-  -webkit-appearance: none;
-  border: 0;
-  box-sizing: border-box;
-  background-color: transparent;
-  font-family: Arial, Helvetica, sans-serif;
-  letter-spacing: -1px;
-  text-shadow: 0 0 0 #000;
-  color: white;
-}
-
-/* ----x----- ALTx add-messages page -----x------*/
 
 /*---------------Media Screen--------------*/
 
